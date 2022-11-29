@@ -8,7 +8,6 @@ MAINTAINER Marlon Beijer "marlon@amigadev.com"
 RUN apt update \
 	&& apt install -y libtool automake autoconf build-essential ninja-build \
         && apt install -y mingw-w64 \
-        && ls /usr/${CROSS_PFX}/bin -l \
 	&& apt autoremove -y
 
 RUN echo "root:root" | chpasswd
@@ -34,8 +33,8 @@ ENV AS=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-as \
 RUN ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-as /usr/bin/as && \
 	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ar /usr/bin/ar && \
 	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ld /usr/bin/ld && \
-	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-gcc-10 /usr/bin/gcc && \
-	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-g++-10 /usr/bin/g++ && \
+	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-gcc /usr/bin/gcc && \
+	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-g++ /usr/bin/g++ && \
 	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ranlib /usr/bin/ranlib
 
 #COPY dependencies/toolchains/${CROSS_PFX}.cmake ${CROSS_ROOT}/lib/
