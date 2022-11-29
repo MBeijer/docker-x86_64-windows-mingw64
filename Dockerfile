@@ -3,16 +3,12 @@ FROM amigadev/docker-base:latest
 ENV CROSS_PFX x86_64-w64-mingw32
 ENV OS_NAME Linux
 
-# Temporary fix
-#COPY --from=build-env /opt/amiga /opt/${CROSS_PFX}
-#RUN ln -s /opt/${CROSS_PFX} /opt/amiga 
-
 # START COMMON
 MAINTAINER Marlon Beijer "marlon@amigadev.com"
 RUN apt update \
 	&& apt install -y libtool automake autoconf build-essential ninja-build \
         && apt install -y mingw-w64 \
-        && ls /usr/${CROSS_PFX} -l \
+        && ls /usr/${CROSS_PFX}/bin -l \
 	&& apt autoremove -y
 
 RUN echo "root:root" | chpasswd
