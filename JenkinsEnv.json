@@ -1,0 +1,12 @@
+{
+    "builds": [
+        {
+            "DockerRoot": "amigadev",
+            "DockerImage": "crosstools",
+            "DockerTag": "x86_64-w64-mingw32",
+            "Dockerfile": "Dockerfile",
+            "BuildIfSuccessful": "",
+            "BuildParam": ""
+        }
+    ]
+}

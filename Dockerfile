@@ -1,6 +1,6 @@
 FROM amigadev/docker-base:latest
 
-ENV CROSS_PFX aarch64-linux-gnu
+ENV CROSS_PFX x86_64-w64-mingw32
 ENV OS_NAME Linux
 
 # Temporary fix
@@ -11,8 +11,8 @@ ENV OS_NAME Linux
 MAINTAINER Marlon Beijer "marlon@amigadev.com"
 RUN apt update \
 	&& apt install -y libtool automake autoconf build-essential ninja-build \
-        && apt install -y gcc-10-aarch64-linux-gnu g++-10-aarch64-linux-gnu \
-        && cp /usr/aarch64-linux-gnu/include/gnu/stubs-lp64.h /usr/aarch64-linux-gnu/include/gnu/stubs-lp64_be.h \
+        && apt install -y mingw-w64 \
+        && ls /usr/${CROSS_PFX} -l \
 	&& apt autoremove -y
 
 RUN echo "root:root" | chpasswd
