@@ -18,7 +18,7 @@ ENV CROSS_BIN_PATH /usr
 
 WORKDIR /work
 ENTRYPOINT ["/entry/entrypoint.sh"]
-
+ARG CACHE_DATE=2021-07-25
 #COPY imagefiles/cmake.sh /usr/local/bin/cmake
 #COPY imagefiles/ccmake.sh /usr/local/bin/ccmake
 COPY imagefiles/entrypoint.sh /entry/
@@ -26,8 +26,8 @@ COPY imagefiles/entrypoint.sh /entry/
 ENV AS=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-as \
 	LD=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ld \
 	AR=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ar \
-	CC=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-gcc-10 \
-	CXX=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-g++-10 \
+	CC=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-gcc \
+	CXX=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-g++ \
 	RANLIB=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ranlib
 
 RUN ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-as /usr/bin/as && \
