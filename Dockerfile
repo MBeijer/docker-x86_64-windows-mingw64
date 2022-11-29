@@ -6,7 +6,7 @@ ENV OS_NAME Linux
 # START COMMON
 MAINTAINER Marlon Beijer "marlon@amigadev.com"
 RUN apt update \
-	&& apt install -y libtool automake autoconf build-essential ninja-build \
+	&& apt install -y libtool automake autoconf build-essential ninja-build zstd \
         && apt install -y mingw-w64 \
 	&& apt autoremove -y
 
