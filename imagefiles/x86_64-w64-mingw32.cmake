@@ -23,6 +23,11 @@ endif()
 
 set(CMAKE_FIND_ROOT_PATH 
 	${TOOLCHAIN_PATH}
+)
+
+set(CMAKE_FIND_DLL_PATH 
+	${TOOLCHAIN_PATH}/lib
+	${TOOLCHAIN_PATH}/bin
 	/usr/lib/gcc/${TOOLCHAIN_PREFIX}/10-posix/
 )
 
