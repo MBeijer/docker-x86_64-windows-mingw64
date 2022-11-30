@@ -21,7 +21,10 @@ if(NOT TOOLCHAIN_PATH)
 	set(TOOLCHAIN_PATH /usr/${TOOLCHAIN_PREFIX})
 endif()
 
-set(CMAKE_FIND_ROOT_PATH ${TOOLCHAIN_PATH})
+set(CMAKE_FIND_ROOT_PATH 
+	${TOOLCHAIN_PATH}
+	/usr/lib/gcc/${TOOLCHAIN_PREFIX}/10-posix/
+)
 
 # modify default behavior of FIND_XXX() commands
 set(CMAKE_PREFIX_PATH ${TOOLCHAIN_PATH})
