@@ -26,15 +26,15 @@ COPY imagefiles/entrypoint.sh /entry/
 ENV AS=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-as \
 	LD=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ld \
 	AR=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ar \
-	CC=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-gcc-win32 \
-	CXX=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-g++-win32 \
+	CC=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-gcc-posix \
+	CXX=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-g++-posix \
 	RANLIB=${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ranlib
 
 RUN ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-as /usr/bin/as && \
 	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ar /usr/bin/ar && \
 	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ld /usr/bin/ld && \
-	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-gcc-win32 /usr/bin/gcc && \
-	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-g++-win32 /usr/bin/g++ && \
+	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-gcc-posix /usr/bin/gcc && \
+	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-g++-posix /usr/bin/g++ && \
 	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ranlib /usr/bin/ranlib
 
 COPY imagefiles/${CROSS_PFX}.cmake ${CROSS_ROOT}/lib/
