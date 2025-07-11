@@ -11,9 +11,6 @@ RUN apt update \
 	&& apt autoremove -y
 
 RUN echo "root:root" | chpasswd
-RUN groupadd -g 1001 myuser && \
-    useradd -m -u 1001 -g 1001 myuser && \
-    echo "myuser:mypassword" | chpasswd
 RUN chmod 777 -R /usr/${CROSS_PFX}
 RUN ln -s /usr/${CROSS_PFX} /tools
 ENV CROSS_ROOT=/usr/${CROSS_PFX}
