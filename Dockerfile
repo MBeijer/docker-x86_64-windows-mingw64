@@ -35,6 +35,8 @@ RUN ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-as /usr/bin/as && \
 	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ld /usr/bin/ld && \
 	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-gcc-posix /usr/bin/gcc && \
 	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-g++-posix /usr/bin/g++ && \
+	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-gcc-posix /usr/bin/${CROSS_PFX}-gcc && \
+	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-g++-posix /usr/bin/${CROSS_PFX}-g++ && \
 	ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ranlib /usr/bin/ranlib
 
 COPY imagefiles/${CROSS_PFX}.cmake ${CROSS_ROOT}/lib/
