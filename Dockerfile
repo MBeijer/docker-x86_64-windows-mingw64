@@ -4,7 +4,7 @@ ENV CROSS_PFX=x86_64-w64-mingw32ucrt
 ENV OS_NAME=Linux
 
 # START COMMON
-MAINTAINER Marlon Beijer "marlon@amigadev.com"
+LABEL maintainer="Marlon Beijer <marlon@amigadev.com>"
 
 RUN apt update \
     && apt install -y \
@@ -27,7 +27,6 @@ RUN apt update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN echo "root:root" | chpasswd
-
 RUN chmod 777 -R /usr/${CROSS_PFX}
 RUN ln -s /usr/${CROSS_PFX} /tools
 
@@ -55,8 +54,6 @@ RUN ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-as /usr/bin/as && \
     ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ld /usr/bin/ld && \
     ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-gcc /usr/bin/gcc && \
     ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-g++ /usr/bin/g++ && \
-    ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-gcc /usr/bin/${CROSS_PFX}-gcc && \
-    ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-g++ /usr/bin/${CROSS_PFX}-g++ && \
     ln -sf ${CROSS_BIN_PATH}/bin/${CROSS_PFX}-ranlib /usr/bin/ranlib
 
 COPY imagefiles/${CROSS_PFX}.cmake ${CROSS_ROOT}/lib/
